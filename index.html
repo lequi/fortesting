@@ -34,7 +34,10 @@
     }
 
     setupWebViewJavascriptBridge(function(bridge) {
-		var uniqueId = 1
+	    bridge.callHandler('MESSAGE_SENT', {'foo': 'bar'}, function(response) {
+				log('JS got response', response)
+			});
+		var uniqueId = 1;
 		function log(message, data) {
 			var log = document.getElementById('log')
 			var el = document.createElement('div')
@@ -60,7 +63,7 @@
 			log('JS calling handler "testObjcCallback"')
 			bridge.callHandler('MESSAGE_SENT', {'foo': 'bar'}, function(response) {
 				log('JS got response', response)
-			})
+			});
 		}
 	})
 	</script>
