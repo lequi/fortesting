@@ -34,9 +34,11 @@
     }
 
     setupWebViewJavascriptBridge(function(bridge) {
+	    log('test', 'test');
 	    bridge.callHandler('MESSAGE_SENT', {'foo': 'bar'}, function(response) {
-				log('JS got response', response)
+				log('JS got response', response);
 			});
+	    
 		var uniqueId = 1;
 		function log(message, data) {
 			var log = document.getElementById('log')
