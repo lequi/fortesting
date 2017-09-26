@@ -54,7 +54,7 @@
                             var self = $(this);
                             clipboard.on('success', function(e) {
                                 $("#inputNormal").val('');
-                                self.html('<span class="oi oi-clipboard"></span> Đã copy!');
+                                self.html('<span class="oi oi-clipboard"></span> Đã copy!').addClass("animated flash");
                                 
                                 e.clearSelection();
                                 setTimeout(function() {
