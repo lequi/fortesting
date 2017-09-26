@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title>Gõ văn bản phong cách Sky quý tộc</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+        
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        body {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="card animated fadeIn">
+            <div class="card-body">
+                <h4 class="card-title">Trở thành quý's tộc's</h4>
+
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="inputNormal" placeholder="Nhập nội dung tầm thường vào đây">
+                    </div>
+
+                    <div class="form-group">
+                            <div class="input-group animated bounce">
+                        <input type="text" class="form-control" id="outputQuyToc" placeholder="Nội dung quý's tộc's sẽ hiển thị ở đây">
+                        <span class="input-group-btn"><button id="copy" data-clipboard-target="#outputQuyToc" class="btn btn-primary" type="button"><span class="oi oi-clipboard"></span> Copy</button></span>
+                        </div>
+                    </div>
+                </form>
+                <script>
+                    $(document).ready(function() {
+                        $("#inputNormal").keyup(function() {
+                            var input = $(this).val();
+                            var output = input.replace(/ |$/gmi, "'s ");
+                            $("#outputQuyToc").val(output.replace(/\s\'s\s$/gmi, ""));
+                        });
+
+                        $("#copy").click(function() {
+                            var clipboard = new Clipboard('.btn');
+                            var self = $(this);
+                            clipboard.on('success', function(e) {
+                                self.html('<span class="oi oi-clipboard"></span> Đã copy!');
+                                
+                                e.clearSelection();
+                                setTimeout(function() {
+                                    self.html('<span class="oi oi-clipboard"></span> Copy');
+                                }, 3000);
+                            });
+
+                            
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
