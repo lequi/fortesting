@@ -53,6 +53,7 @@
                             var clipboard = new Clipboard('.btn');
                             var self = $(this);
                             clipboard.on('success', function(e) {
+                                $("#inputNormal").val('');
                                 self.html('<span class="oi oi-clipboard"></span> Đã copy!');
                                 
                                 e.clearSelection();
