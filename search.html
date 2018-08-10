@@ -8,7 +8,7 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 <script type="text/javascript">
-  $("#search").keypress(function() {
+  $("#search").keyup(function() {
     $.post("https://e0c7fbc7.ngrok.io", {q: $("#search").val()}).done(
       function(data) {
         var ul = $('<ul>');
